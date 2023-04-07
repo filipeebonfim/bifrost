@@ -4,13 +4,15 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "decrypt": "node app.js decrypt",
+    "encrypt": "node app.js encrypt",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "crypto": "^1.0.1",
-    "minimist": "^1.2.5",
+    "minimist": "^1.2.8",
     "tar": "^6.1.0"
   }
 }

@@ -1,15 +1,43 @@
-node app.js encrypt --path /home/filipe/git/bifrost/thefolder --tarName assembly -p 'pass' --iv iv
+# Bifrost
 
-node app.js decrypt --path /home/filipe/git/bifrost/assembly.tgz.enc -p 'pass' --iv iv -d ./extract2
+This script is responsible for encrypt files and packages
 
-First argv    The method that you want to use 
-Methods avaiable: 
+### Dependency
+
+- Node
+- Npm
+
+### Arguments
+
+____
+
+- `-p password`: The password to encrypt or decrypt some tar file
+- `--iv 1234567891113150` The initial vector. The size needs to be **16 bytes** used to encrypt & decrypt
+    - If the vector sent is less than 16 bytes then the script use a default vector
+- `--path ./encryptThisFile.txt` The path where your folder or file is.
+- `-d ./output` _optional_. Path where your output will be written
+- `--tarName encrypted` _optional_. Name your encrypted output file
+
+### Methods Available
+
+____
+
+```
 [
-  'encrypt',
-  'decrypt',
+    'encrypt',
+    'decrypt'
 ]
+```
 
--p        The password to encrypt or descrypt some tar file 
---iv       The initial vector used to encrypt or descrypt some tar file
---path     The path where is the folder or the file that you want to use
--d        Destiny for your decrypted file
+### Running
+
+#### Encrypt
+        node app.js encrypt --path ./thefolder --tarName encrypted -p 'password' --iv 1234567891113150
+        npm run encrypt -- --path ./thefolder --tarName encrypted -p 'password' --iv 1234567891113150
+
+#### Decrypt
+
+        node app.js decrypt --path ./encrypted.tgz.enc -p 'password' --iv iv 1234567891113150
+        npm run decrypt -- --path ./encrypted.tgz.enc -p 'password' --iv iv 1234567891113150
+
+

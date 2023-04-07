@@ -1,5 +1,5 @@
-const encrypt = require('./encrypt');
-const decrypt = require('./decrypt');
+const encrypt = require('./src/encrypt');
+const decrypt = require('./src/decrypt');
 
 const functions = Object.freeze({
   encrypt: "encrypt",
@@ -18,13 +18,12 @@ const main = () => {
   const method = args._[0];
 
   const data = {
-    filePath: args.path,
-    fileName: args.tarName ? args.tarName : null,
+    sourcePath: args.path,
+    targetfileName: args.tarName ? args.tarName : null,
     password: args.p,
     iv: args.iv,
-    destiny: args.d,
+    outputPath: args.d,
   }
-
 
   const fun = customObject[method];
 
